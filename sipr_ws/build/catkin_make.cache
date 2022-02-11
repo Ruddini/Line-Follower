@@ -1,0 +1,2 @@
+camera_pkg:package_ROS
+-DCATKIN_DEVEL_PREFIX=/home/sipr/sipr_ws/devel -DCMAKE_INSTALL_PREFIX=/home/sipr/sipr_ws/install -G Unix Makefiles

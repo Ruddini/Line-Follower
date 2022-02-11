@@ -1,0 +1,18 @@
+Gazebo multi-robot simulator, version 9.0.0
+Copyright (C) 2012 Open Source Robotics Foundation.
+Released under the Apache 2 License.
+http://gazebosim.org
+
+
+(1620805263 281824885) [Msg] Waiting for master.
+(1620805263 283804248) [Msg] Connected to gazebo master @ http://127.0.0.1:11345
+(1620805263 283834550) [Msg] Publicized address: 10.0.2.15
+(1620805264 121542980) [Err] [World.cc:2250] Unable to find model[Dumpster]
+(1620805264 121568745) [Err] [World.cc:2250] Unable to find model[cube_20k]
+(1620805264 121586279) [Err] [World.cc:2250] Unable to find model[unit_cylinder_1]
+(1620805264 121604985) Init world[default]
+(1620805266 540245677) applying Gaussian noise model with mean 0, stddev 0.01, bias -0
+(1620805266 687078644) [Wrn] [msgs.cc:1852] Conversion of sensor type[depth] not supported.
+(1620805267 932500833) [Wrn] [msgs.cc:1852] Conversion of sensor type[depth] not supported.
+(1620805267 934483542) [Wrn] [msgs.cc:1852] Conversion of sensor type[depth] not supported.
+(1620805267 935856430) [Wrn] [msgs.cc:1852] Conversion of sensor type[depth] not supported.

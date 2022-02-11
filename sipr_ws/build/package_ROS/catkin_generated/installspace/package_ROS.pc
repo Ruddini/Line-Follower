@@ -1,0 +1,8 @@
+prefix=/home/sipr/sipr_ws/install
+
+Name: package_ROS
+Description: Description of package_ROS
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

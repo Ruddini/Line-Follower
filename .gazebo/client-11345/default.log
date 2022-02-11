@@ -1,0 +1,18 @@
+Gazebo multi-robot simulator, version 9.0.0
+Copyright (C) 2012 Open Source Robotics Foundation.
+Released under the Apache 2 License.
+http://gazebosim.org
+
+
+(1620805263 322913639) [Msg] Waiting for master.
+(1620805263 334302038) [Msg] Connected to gazebo master @ http://127.0.0.1:11345
+(1620805263 334332160) [Msg] Publicized address: 10.0.2.15
+(1620805263 334620226) Loaded .ini file from: "/home/sipr/.gazebo/gui.ini"
+(1620805264 210107375) [Err] [InsertModelWidget.cc:405] Missing model.config for model "/home/sipr/projekt_a/src/turtlebot3_simulations/turtlebot3_gazebo/models/turtlebot3_autorace"
+(1620805264 210313339) model.config file is missing in directory["/home/sipr/projekt_a/src/turtlebot3_simulations/turtlebot3_gazebo/models/turtlebot3_autorace"]
+(1620805264 210465047) [Err] [InsertModelWidget.cc:405] Missing model.config for model "/home/sipr/projekt_a/src/turtlebot3_simulations/turtlebot3_gazebo/models/turtlebot3_autorace_2020"
+(1620805264 210649191) model.config file is missing in directory["/home/sipr/projekt_a/src/turtlebot3_simulations/turtlebot3_gazebo/models/turtlebot3_autorace_2020"]
+(1620805264 210920835) [Err] [InsertModelWidget.cc:405] Missing model.config for model "/home/sipr/projekt_a/src/turtlebot3_simulations/turtlebot3_gazebo/models/turtlebot3_common_meshes"
+(1620805264 211105969) model.config file is missing in directory["/home/sipr/projekt_a/src/turtlebot3_simulations/turtlebot3_gazebo/models/turtlebot3_common_meshes"]
+(1620805265 995246420) No spacenav daemon found. Spacenav functionality is disabled
+(1620805267 156407786) [Err] [ModelDatabase.cc:390] Unable to parse model.config for model[http://gazebosim.org/models/bin_4_dropping_task]
