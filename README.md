@@ -1,54 +1,71 @@
 # Line-Follower
-Zadaniem programu line detection.py jest wyznaczenie srodka cie_zkosci danego
-koloru, jednak_ze pierwszym krokiem w algorytmie jest zdeniowane zakresow
-kolorow, ktore nasz robot ma sledzic. Odbywa sie to za pomoca funkcji np.array,
-nastepnie przy pomocy funkcji np.inRange zostaja zadeklarowane maski kolorow,
-ktore zostaja na lo_zone na obraz. Kolejnym krokiem algorytmu jest znajdy-
-wanie krawedzi/konturow lini w danych kolorach. Przy tej operacji u_zywamy
-metody cv2.FindCountours, ktora zwraca tablice konturow obiektu. Argumen-
-tami tej funkcji jest ramka obrazu z na lo_zona na nia maska koloru, hierar-
-chia konturow i sposob aproksymacji konturu. Wyznaczone kontury pozwalaja
-nam znalezc srodek cie_zkosci obiektu/lini, ktory jest wyznaczany przy pomocy
-metody cv2.Moments, ktora oblicza srednia wa_zona intesywnosci pikseli danego
-obiektu. Do obliczania srodka obiektow u_zywane zosta ly wzory :
-Figure 5: Wzor na wyliczanie wspo lrzednych srodka obiektu
-Program znajduje wspo lrzedne srodka cie_zkosci danego koloru. Porownuje,
-ktory kolor na obrazie w danej chwili czasowej zajmuje najwiecej obszaru. Dla
-najliczniejszego obszaru zostaja narysowane linie, ktore przecinaja sie w srodku
-cie_zkosci znalezionego koloru. Informacja o tym, ktory kolor zajmuje najwiecej
-obszaru zostaje przekazana do programu l f.py, ktory to na tej podstawie okresla
-predkosc robota. Dodatkowo program l f.py sukbskrybuje topic 'camera/rgb/image raw',
-ktory to przekazuje programowi obraz z kamery, nastepnie za pomoca komendy
-rospy.Publisher wysy la wiadomosc zawarta w Twist o predkosciach robota do
-topicu 'cmd vel'. Dzieki funkcji rospy.spin(), sytuacja subkrybowania i wysy lania
-wiadomosci jest zapetlona i aktualizowana z ka_zdym wykonaniem programu. Na
-Figure 6 przedstawione zosta l RQT graph naszego projektu.
+Zadaniem programu linę detection.py jest wyznaczenie środka ciężkości danego
+koloru, jednakże pierwszym krokiem w algorytmie jest zdefiniowanie zakresów
+kolorów, które nasz robot ma śledzić. Odbywa się to za pomocą funkcji np.array,
+następnie przy pomocy funkcji np.inRange zostają zadeklarowane maski kolorów,
+które zostają nałożone na obraz. Kolejnym krokiem algorytmu jest znajdy-
+wanie krawędzi/konturów linii w danych kolorach. Przy tej operacji używamy
+metody cv2.FindCountours, która zwraca tablice konturów obiektu. Argumen-
+tami tej funkcji jest ramka obrazu z nałożona na nią maska koloru, hierar-
+chia konturów i sposób aproksymacji konturu. Wyznaczone kontury pozwalają
+nam znaleźć środek ciężkości obiektu/linii, który jest wyznaczany przy pomocy
+metody cv2.Moments, która oblicza średnia ważona intensywności pikseli danego
+obiektu.
+
+Program znajduje współrzędne środka ciężkości danego koloru. Porównuje,
+który kolor na obrazie w danej chwili czasowej zajmuje najwięcej obszaru. Dla
+najliczniejszego obszaru zostają narysowane linie, które przecinają się w środku
+ciężkości znalezionego koloru. Informacja o tym, który kolor zajmuje najwięcej
+obszaru zostaje przekazana do programu l f.py, który to na tej podstawie określa
+prędkość robota. Dodatkowo program l f.py subskrybuje topic 'camera/rgb/image raw',
+który to przekazuje programowi obraz z kamery, następnie za pomocą komendy
+rospy.Publisher wysyła wiadomość zawarta w Twist o prędkościach robota do
+topicu 'cmd vel'. Dzięki funkcji rospy.spin(), sytuacja subskrybowania i wysyłania
+wiadomości jest zapętlona i aktualizowana z każdym wykonaniem programu. 
+
+![image](https://user-images.githubusercontent.com/58587279/153841197-fbe71f4c-29c7-4540-ab53-6522f1c431fd.png)
+Figure: przedstawione został RQT graph naszego projektu.
 
 
 
-## Aby uruchomiec nasz program, nale_zy w konsolach pisac nastepujace komendy:
-'''
+
+## Aby uruchomić nasz program, nale_zy w konsolach pisać nastepujace komendy:
+```
 1. cd ros workspace
 2. sudo apt update
 3. catkin make
 4. source devel/setup.sh
 5. roslaunch rosbot descritpion rosbot.launch
-'''
+```
 ## W drugiej karcie konsoli:
-'''
+```
 1. cd ..
 2. cd sipr ws
 3. sudo apt update
 4. catkin make
 5. source devel/setup.sh
 6. rosrun camera pkg l f.py
-'''
-W tym momencie program bedzie dzia lac, bez _zadnych problemow, robot bedzie
-poda_za l za linia. Je_zeli chcemy, aby mo_zliwe by lo sterowanie robotem z poziomu
-klawiatury, nale_zy w kolejnej konsoli wpisac:
-'''
+```
+W tym momencie program bedzie działać, bez _zadnych problemów, robot bedzie
+podazał za linia. Jeżeli chcemy, aby możliwe było sterowanie robotem z poziomu
+klawiatury, nalećy w kolejnej konsoli wpisać:
+```
 1. cd ..
 2. cd ros workspace
 3. source devel/setup.sh
 4. rosrun teleop twist keyboard teleop twist keyboard.py
-'''
+```
+Dla programu zostały przeprowadzany szereg testów. Sprawdzane została praca
+robota przy rożnym kształcie linii na podłożu, jak tez dla rożnych prędkości
+robota. Na prezentacji widoczne jest, że robot wraca do swojej
+pozycji i podażą wzdłuż narysowanej linii. Poniżej zostało przedstawiony obraz z
+kamery robota, jak też przekształcony obraz z kamery, na którym widzimy punkt
+(_środek ciężkości koloru) do którego robot podąża w danej chwili czasowej.
+
+![image](https://user-images.githubusercontent.com/58587279/153842095-e286383a-fa89-4d06-b4bb-ead3fbadf8db.png)
+Figure: Przedstawianie rozpoznawania i znajdowania _środka ciężkości dla linii
+w kolorze białym
+
+![image](https://user-images.githubusercontent.com/58587279/153842106-89ef1ec5-67d9-4745-aa88-1592cc95f3c3.png)
+Figure: Przedstawianie rozpoznawania i znajdowania _środka ciężkości dla linii
+w kolorze czarnym
